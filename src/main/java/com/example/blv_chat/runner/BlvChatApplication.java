@@ -1,4 +1,4 @@
-package com.example.blv_chat;
+package com.example.blv_chat.runner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
