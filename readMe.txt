@@ -58,8 +58,11 @@ ajouter un front en angular
 Partie 5:
 Creer le chat
 
-Partie 6:
-ajouter les Oauth
+Partie 6 : evolutions
+- message privé
+- compte de moderation
+-confirmation de compte via envoie de mail
+- gerer les recherches par date
 
 Partie 7:
 ajouter une API pour un service
@@ -67,9 +70,9 @@ ajouter une API pour un service
 Partie 8:
 gérer la securité de l'application
 
-Partie 9 : evolutions
-- compte de moderation
--confirmation de compte via envoie de mail
-- gerer les recherches par date
+
+
+Partie 9:
+ajouter les Oauth
 
 

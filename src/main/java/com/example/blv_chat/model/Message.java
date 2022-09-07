@@ -31,6 +31,19 @@ public class Message {
     public Date getDate(){
         return date;
     }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getAuthor() {
         return author;
     }
