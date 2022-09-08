@@ -3,6 +3,7 @@ package com.example.blv_chat.controller;
 import com.example.blv_chat.model.Message;
 import com.example.blv_chat.model.Utilisateurs;
 import com.example.blv_chat.repository.UtilisateursRepository;
+import com.example.blv_chat.service.UtilisateursService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,58 +19,39 @@ import java.util.Optional;
 public class UtilisateursController {
 
     @Autowired
-    UtilisateursRepository utilisateursRepository;
+    UtilisateursService utilisateursService;
 
 //    create
-@PostMapping("/utilisateurs")
-public ResponseEntity<Utilisateurs> createUtilisateurs(@RequestBody Utilisateurs user) {
-    try {
-        Utilisateurs _user = utilisateursRepository.save(
-                new Utilisateurs(user.getUsername(), user.getPassword())
-        );
-        return new ResponseEntity<>(_user, HttpStatus.CREATED);
-    } catch (Exception e) {
-        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    @PostMapping("/utilisateurs")
+    public ResponseEntity<Utilisateurs> createUtilisateurs(@RequestBody Utilisateurs user) {
+        return utilisateursService.serviceCreateUtilisateurs(user);
     }
-}
-//    request
-@GetMapping("/utilisateurs")
-public ResponseEntity<List<Utilisateurs>> getAllUtilisateurs(@RequestBody(required = false) String user){
-    try
-    {
-        List<Utilisateurs> users = new ArrayList<Utilisateurs>();
-        if(user == null){
-            utilisateursRepository.findAll().forEach(users::add);
-        }
-        else
-        {
-            utilisateursRepository.findUtilisateursByUsername(user).forEach(users::add);
-            if(users.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-        }
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    //    request
+    @GetMapping("/utilisateurs")
+    public ResponseEntity<List<Utilisateurs>> getAllUtilisateurs(@RequestBody(required = false) String user){
+        return utilisateursService.serviceGetAllUtilisateurs(user);
     }
-    catch (Exception e)
-    {
-        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-}
 
-@GetMapping("/utilisateurs/{username}")
-public ResponseEntity<Utilisateurs> getUtilisateursByUsername(@PathVariable("username") String user){
-    Utilisateurs userFoundByUsername = (Utilisateurs) utilisateursRepository.findUtilisateursByUsername(user);
-    if (userFoundByUsername == null) {
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    } else {
-        return new ResponseEntity<>(userFoundByUsername, HttpStatus.OK);
+    @GetMapping("/utilisateurs/{username}")
+    public ResponseEntity<Utilisateurs> getUtilisateursByUsername(@PathVariable("username") String user){
+        return utilisateursService.serviceGetUtilisateursByUsername(user);
     }
-}
-}
+
 //    update
-
+    @PutMapping("/utilisateurs/{id}")
+    public ResponseEntity<Utilisateurs> updateUtilisateurs(@PathVariable("id") Long id, @RequestBody Utilisateurs user){
+        return utilisateursService.serviceUpdateUtilisateurs(id, user);
+    }
 
 //    delete
+    @DeleteMapping("/utilisateurs/{id}")
+    public ResponseEntity<HttpStatus> deleteUtilisateursById(@PathVariable("id") Long id){
+        return utilisateursService.serviceDeleteUtilisateursById(id);
+    }
+
+
+}
+
 
 
 

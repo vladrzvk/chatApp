@@ -7,9 +7,8 @@ import java.util.List;
 
 public interface UtilisateursRepository extends JpaRepository<Utilisateurs, Long> {
     List<Utilisateurs> findUtilisateursByUsername(String str);
-
-
     Utilisateurs findUtilisateurByUsername(String str);
+    Utilisateurs deleteUtilisateursById(Long id);
 
 //    ajouter une recherche par privilege (admin etc)
 

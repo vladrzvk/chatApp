@@ -61,9 +61,10 @@ public class MessageService {
     }
 
     public ResponseEntity<Message> serviceUpdateMessage(Long id, Message message){
-        Optional<Message> tutorialData = messageRepository.findById(id);
-        if (tutorialData.isPresent()) {
-            Message _message = tutorialData.get();
+        Optional<Message> messageData = messageRepository.findById(id);
+
+        if (messageData.isPresent()) {
+            Message _message = messageData.get();
             _message.setAuthor(message.getAuthor());
             _message.setDate(message.getDate());
             _message.setContent(message.getContent());

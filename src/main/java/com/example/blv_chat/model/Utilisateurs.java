@@ -44,6 +44,7 @@ public class Utilisateurs  {
     public void setPassword(String str){
         this.password = str;
     }
+    public void setUsername(String str){ this.username = str;}
 
 
 
