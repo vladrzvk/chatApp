@@ -27,7 +27,7 @@ utilisateur - ONE-TO-MANY - MESSAGE (inc)
 
  (evolution : un salon est associé à plusieurs messages, plusieurs utilisateurs)
 
-PARTIE 2 : Repository & Controller
+PARTIE 2 : Repository & Service & Controller
 
  créer les interfaces pour les utilisateurs & les messages dans repository et l'extends JpaRepository
 creer la classe controller { @{crossorigin, RestController, Request mapping} ,
