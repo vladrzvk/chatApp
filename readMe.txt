@@ -56,6 +56,9 @@ tester les requetes avec postman
 Partie 4:
 ajouter un front en angular
 
+creer le projet, creer les repo, créer les services, créer les models, créer les composants y ajouter les modules, 
+definir les routes pour AppRoutingModule
+
 Partie 5:
 Creer le chat
 
