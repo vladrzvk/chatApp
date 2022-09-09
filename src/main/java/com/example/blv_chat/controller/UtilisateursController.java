@@ -49,7 +49,6 @@ public class UtilisateursController {
         return utilisateursService.serviceDeleteUtilisateursById(id);
     }
 
-
 }
 
 

@@ -29,9 +29,11 @@ utilisateur - ONE-TO-MANY - MESSAGE (inc)
 
 PARTIE 2 : Repository & Service & Controller
 
- créer les interfaces pour les utilisateurs & les messages dans repository et l'extends JpaRepository
-creer la classe controller { @{crossorigin, RestController, Request mapping} ,
- DAO
+créer les interfaces pour les utilisateurs & les messages dans repository et l'extends JpaRepository
+creer les classes pour le service
+creer les classes controller { @{crossorigin, RestController, Request mapping} ) qui appelent les services
+
+creer un DAO pour des requetes plus compliqué
 
 
 Partie 3:
@@ -47,10 +49,9 @@ Ajouter JPA/Hibernate préconfig pour postgres
 2. Configure Data Source Properties
 3. Connect to PostgreSQL Database with Spring JDBC
 4. Connect to PostgreSQL Database with Spring Data JPA
-
 (https://www.codejava.net/frameworks/spring-boot/connect-to-postgresql-database-examples)
 
-
+tester les requetes avec postman
 
 Partie 4:
 ajouter un front en angular
